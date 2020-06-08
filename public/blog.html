@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blogs</title>
+  <link rel="canonical" href="https://example.com"/>
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="icon" type="icon/logo" href="mylogo.JPG">
+	 <link rel="stylesheet" href="style.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+<link rel="manifest"  href="manifest.json">
+     <meta name="theme-color" content="orange">
+</head>
+<body class="blogbody">
+    <div class="topnav" id="myTopnav">
+    		
+    			 <a href="index.html" class="action" >Shravanv1</a>
+                 <a href="index.html"><i class="fa fa-fw fa-home home"></i>HOME</a>
+                 <a href="blog.html"  ><i class="fa fa-book fa-fw blog"></i>BLOG</a>
+                 
+                 <a href="Our Team.html" ><i class="fa fa-fw fa-users team"></i> TEAM</a>
+                 <a href="practice.html" class="top"><i class="fas fa-laptop-code relode"></i></i>PRACTICE</a>
+                 <a href="covid.html"><i class="fas fa-newspaper news"></i>COVID-19</a>
+                 
+                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+    	</div>
+
+
+
+
+
+
+
+
+    <div class="blogtop">
+	   <center ><h1>BLOGS</h1>
+	   <div class="border"></div></center>
+</div>
+<div class="first">
+	<div class="image">
+	 <img src="mypic.jpg" align="left">
+	</div>
+	 <div class="pa-des">
+	 	<b>Binary Exponentiation<b>
+    </div>
+     <div class="pa-des">
+	 	<b>by-Shravan Kumar Verma<b>
+    </div>
+    <div class="p-name">
+    	<strong style="color: red">DATE:29/02/2020</strong>
+    </div>
+</div>
+
+  <div class="firsta">
+
+  	<pre class="question" >Hello geeks!
+Given two number a,b and task is find the a<sup>b</sup>.
+example:
+a=2
+b=5
+then answer should be-
+2<sup>5</sup>=32
+<strong>Basic method :</strong>
+While calculating 2<sup>5</sup>, the most basic solution is broken down into 2*2<sup>5-1</sup>.The new problem is 2<sup>5-1</sup>, which is similar to the original problem. Therefore,like in original problem, it is further broken down to 2*2*2<sup>5-3</sup> and so on.
+let's code for it.
+ 
+     int <font size=+1><b>Fast_pow</b></font>(<font color="blue">int a,int n</font>)
+      {
+	 &nbsp;int ans=1;&nbsp;
+         &nbsp;while(n>0)
+	  { 
+            ans=ans*a;
+            n=n-1;  <font color="gray">//decrese the value of n by 1</font>
+	  }&nbsp;
+	return ans;
+      } 
+
+<strong>Time complexity :</strong>
+With respect to time complexity, it is a fairly efficient O(b) solution. However, when it comes to finding a<sup>b</sup>, where b can be as large as 10<sup>18</sup> , this solution will not be suitable.
+
+Let's optimize our method.
+While calculating a<sup>b</sup> , the basis of Binary Exponentiation relies on whether b  is odd or even.
+If b is even we can broke a<sup>b</sup> to (a<sup>2</sup>)<sup>b/2</sup>.Finding a<sup>2</sup>is very easy process. However, the problem is to find to (a<sup>2</sup>)<sup>b/2</sup> .So,we can reduced b to b/2 continuously until it becomes odd.like that ((((a<sup>2</sup>)<sup>2</sup>)<sup>b/4</sup>)<sup>........</sup>)<sup>1</sup>If b is odd then it can be broke like a*a<sup>b-1</sup>,now b-1 become even then by above method it can be further broken.
+
+Let's see an example :-
+You are reqired to find 2<sup>10</sup>.Then it can be done like follows:
+Here b=10 is even
+then break it into (2<sup>2</sup>)<sup>10/2</sup>=&gt;4<sup>5</sup>
+now a=4
+and b=5
+b=5 is odd now,then it's break like 4*4<sup>4</sup>=&gt;4*(4<sup>2</sup>)<sup>2</sup>=&gt;4*(16)<sup>2</sup> and the final step is 4*16*16=&gt; 1024 At every step, b is divided by 2 . Therefore, the time complexity is O(log b).
+
+see below the implimantation of C++ program
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+
+  </div>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #339900;">#include &lt;stdio.h&gt;</span>
+<span style="color: #0000ff;">int</span> Fast_pow<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> a,<span style="color: #0000ff;">int</span> n<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+     <span style="color: #0000ff;">int</span> ans<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> 
+     <span style="color: #0000ff;">while</span><span style="color: #008000;">&#40;</span>n<span style="color: #000080;">&gt;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+     <span style="color: #008000;">&#123;</span> <span style="color: #666666;">//check that power is even or not</span>
+          <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>n <span style="color: #000040;">&amp;</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span>
+            ans<span style="color: #000080;">=</span>ans<span style="color: #000040;">*</span>a<span style="color: #008080;">;</span>
+                <span style="color: #666666;">//shift the bit of a number(i.e. divide it by 2)</span>
+          n<span style="color: #000080;">=</span>n<span style="color: #000080;">&gt;&gt;</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+          a<span style="color: #000080;">=</span> a<span style="color: #000040;">*</span>a<span style="color: #008080;">;</span> <span style="color: #666666;">//here we find a2</span>
+     <span style="color: #008000;">&#125;</span> 
+    <span style="color: #0000ff;">return</span> ans<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+<span style="color: #666666;">// call function from main function</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>      <span style="color: #0000ff;">int</span> a<span style="color: #000080;">=</span><span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+       <span style="color: #0000ff;">int</span> b<span style="color: #000080;">=</span><span style="color: #0000dd;">5</span><span style="color: #008080;">;</span>
+       <span style="color: #0000ff;">int</span> ans<span style="color: #000080;">=</span>Fast_pow<span style="color: #008000;">&#40;</span>a,b<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+       <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%d pow %d is= %d&quot;</span>,a,b,ans<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+       <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+
+      <div class="comment" id="kya" >
+        <h3>Comment :</h3>
+        <form  id="form1" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+      
+
+<div class="first">
+	<div class="image">
+	 <img src="abhi.JPG" align="left">
+	</div>
+	 <div class="pa-des">
+	 	<b>Factorial of a number</b>
+    </div>
+     <div class="pa-des">
+	 	<b>by-Abhishek<b>
+    </div>
+    <div class="p-name">
+    	<strong style="color: red">DATE:16/03/2020</strong>
+    </div>
+</div>
+
+<div class="firsta">
+
+  	<pre class="question" >Hello geeks!
+Given a number n and task is find the factorial of n.
+The factorial of a number is the product of all the integers from 1 to that number.
+example:
+n=5
+5!=5*4*3*2*1
+This is very simple to implement.
+Now its fun to implement this  mathematical calculation  via C program.
+
+<strong>Time complexity :</strong>
+With respect to time complexity, it is a fairly efficient O(n) solution.
+  
+see below the implimantation of C program
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+
+  </div>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #339900;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>       <span style="color: #0000ff;">int</span> n<span style="color: #000080;">=</span><span style="color: #0000dd;">5</span><span style="color: #008080;">;</span>
+   <span style="color: #0000ff;">int</span> i,fact<span style="color: #008080;">;</span>
+   <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;=</span>n<span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+      <span style="color: #008000;">&#123;</span>
+     fact<span style="color: #000080;">=</span>fact<span style="color: #000040;">*</span>i<span style="color: #008080;">;</span>
+            <span style="color: #666666;">//it happen again and again  untill loop is terminate.</span>
+       <span style="color: #008000;">&#125;</span>
+          <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;factorial of %d is = %d&quot;</span>,n,fact<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+          <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+
+<div class="comment" id="kya1" >
+        <h3>Comment :</h3>
+        <form  id="form2" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+
+<div class="first">
+	<div class="image">
+	 <img src="avani.jpg" align="left">
+	</div>
+	 <div class="pa-des">
+	 	<b>Linked List<b>
+    </div>
+     <div class="pa-des">
+	 	<b>by-Avani Mishra<b>
+    </div>
+    <div class="p-name">
+    	<strong style="color: red">DATE:16/03/2020</strong>
+    </div>
+</div>
+
+<div class="firsta">
+
+  	<pre class="question" >Hello geeks!
+A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers as shown in the below image:
+In each image block is known as node.Each node contain two thing-
+1.Data
+2.A link to next node.After last node there is no node so last node contain NULL.
+
+
+   <img class="linkedlist" src="link.png" width="auto">
+
+    
+     Linked lists are among the simplest and most common data structures. They can be used to implement several other common abstract data types, including lists, stacks, queues, associative arrays, and S-expressions, though it is not uncommon to implement those data structures directly without using a linked list as the basis.
+<strong>Advantages</strong>
+<font color="balck">1.</font> Dynamic size
+<font color="balck">2.</font> Ease of insertion/deletion
+
+<strong>Disadvantages</strong>
+      
+<font color="balck">1.</font>They use more memory than arrays because of the storage used by their pointers.
+<font color="balck">2.</font>Nodes in a linked list must be read in order from the beginning as linked lists are inherently sequential access.
+<font color="balck">3.</font>Nodes are stored noncontiguously, greatly increasing the time
+periods required to access individual elements within the list, especially with a CPU cache.
+<font color="balck">4.</font>Difficulties arise in linked lists when it comes to reverse traversing. For instance,singly-linked lists are cumbersome to navigate backward  and while doubly linked lists are somewhat easier to read, memory is consumed in allocating space for a back-pointer.
+
+For implimantation of linked list first we have to built node.Let's implimant linked list through c langauge.
+Insert data in linked list at first.
+The new node is always added before the head of the given Linked List. And newly added node becomes the new head of the Linked List. For example if the given Linked List is 2--> 1 and we add an item 3 at the front, then the Linked List becomes 3--> 2--> 1.
+See the pic below for understanding--
+
+
+      <img class="linkedlist"src="flink.png">
+
+      
+      <font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+
+  </div>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #339900;">#include &lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include &lt;stdlib.h&gt;</span>
+<span style="color: #666666;">//let's create Node by using struct</span>
+ <span style="color: #0000ff;">struct</span> Node <span style="color: #008000;">&#123;</span>
+      <span style="color: #0000ff;">int</span> data<span style="color: #008080;">;</span>
+    <span style="color: #666666;">//This is self  reference of Node,means point same type of node.</span>
+      <span style="color: #0000ff;">struct</span> Node<span style="color: #000040;">*</span> next<span style="color: #008080;">;</span>
+ <span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>      
+      <span style="color: #0000ff;">struct</span> Node<span style="color: #000040;">*</span> head<span style="color: #000080;">=</span><span style="color: #0000ff;">NULL</span><span style="color: #008080;">;</span>
+      <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">4</span><span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+      <span style="color: #008000;">&#123;</span>  <span style="color: #0000ff;">struct</span> Node<span style="color: #000040;">*</span> temp<span style="color: #000080;">=</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> node <span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span><span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> Node<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+        temp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>data<span style="color: #000080;">=</span>i<span style="color: #008080;">;</span>
+        temp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #000080;">=</span>head<span style="color: #008080;">;</span>
+        head<span style="color: #000080;">=</span>temp<span style="color: #008080;">;</span>
+       <span style="color: #008000;">&#125;</span>
+&nbsp;
+     <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot; The data of linked list is&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+     <span style="color: #0000ff;">while</span><span style="color: #008000;">&#40;</span>head<span style="color: #000040;">!</span><span style="color: #000080;">=</span><span style="color: #0000ff;">NULL</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>
+       <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot; %d &quot;</span>,head<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>data<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+       head<span style="color: #000080;">=</span>head<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #008080;">;</span>
+    <span style="color: #008000;">&#125;</span>
+     <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+
+
+
+<div class="comment" id="kya3" >
+        <h3>Comment :</h3>
+        <form  id="form3" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+
+<div class="first">
+	<div class="image">
+	 <img src="shikhar.jpg" align="left">
+	</div>
+	 <div class="pa-des">
+	 	<b> 0-1 Kanpsack<b>
+    </div>
+     <div class="pa-des">
+	 	<b>by-Shikher Sinha<b>
+    </div>
+    <div class="p-name">
+    	<strong style="color: red">DATE:16/03/2020</strong>
+    </div>
+</div>
+
+<div class="firsta">
+
+  	<pre class="question" >Hello geeks!
+Dynamic Programming is one of the most important concepts of programming as it can greatly optimize a problem by reducing its execution time.
+Dynamic Programming can be used whenever recursion is involved (whenever a problem can be broken into smaller sub-problems) as it works by storing the result of smaller sub-problems so that they don’t need to be computed again when needed.
+The most basic example of Dynamic Programming is in the calculation of Fibonacci Numbers. The recursive approach takes exponential time while the DP optimization brings the complexity down to linear time.
+Dynamic Programming has some classical problems and one of those is the Knapsack Problem. It has two variants, The 0-1 Knapsack Problem and The Fractional Knapsack Problem.
+
+<strong><font color="black" style="font-size: 25px">Knapsack Problem:</font></strong>
+
+  You have a knapsack that can hold a maximum weight W.You also have n articles with their weights being W 1 , W 2 ...W n . The articles also have a value associated with them
+with the values being V 1 , V 2 … V n . The task is to put these articles in the Knapsack in such a way that the total weight of the articles doesn’t exceed W and sum of the values of the chosen articles is maximized.
+
+<strong><font color="black">Naïve approach:</font></strong>
+
+ One approach to this problem would involve considering all the 2<sup>n</sup> subsets and then picking the one which gives the maximum value. This approach would have an exponential time complexity
+
+<strong><font color="black">Using DP:</font></strong>
+
+ Dynamic Programming reduces the complexity of the problem to O (W*N), where W is the maximum capacity of the knapsack while N is the number of articles.
+We take a 2D array having dimensions (N+1)*(W+1). The ith row considers the first i articles while the jth column considers the weight of the knapsack to be j.
+Example:
+W=5 N=3
+V[]={6, 10, 12}
+Wt[]={2, 1, 3}
+The resulting DP table will be shown in fig--:
+
+<img class="linkedlist" src="knap.JPG">
+
+See below for sudo code.
+ <font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+
+  </div>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #339900;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> knapsack<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> wt<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span>,<span style="color: #0000ff;">int</span> v<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span>,<span style="color: #0000ff;">int</span> n<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>      
+   <span style="color: #0000ff;">int</span> dp<span style="color: #008000;">&#91;</span>n<span style="color: #000040;">+</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>w<span style="color: #000040;">+</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;=</span>n<span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #666666;">// articles 1 to n</span>
+    <span style="color: #008000;">&#123;</span>
+        <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> j<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>j<span style="color: #000080;">&lt;=</span>w<span style="color: #008080;">;</span>j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #666666;">// for all weights from 1 to w</span>
+        <span style="color: #008000;">&#123;</span>
+            <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>i<span style="color: #000080;">==</span><span style="color: #0000dd;">0</span> <span style="color: #0000ff;">or</span> j<span style="color: #000080;">==</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> dp<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> <span style="color: #666666;">// base case</span>
+            <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>wt<span style="color: #008000;">&#91;</span>i<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #000080;">&lt;=</span>j<span style="color: #008000;">&#41;</span> <span style="color: #666666;">// weight of (i-1)th article is less than or equal to j</span>
+            dp<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span>max<span style="color: #008000;">&#40;</span>dp<span style="color: #008000;">&#91;</span>i<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #000040;">-</span>wt<span style="color: #008000;">&#91;</span>i<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#93;</span><span style="color: #000040;">+</span>v<span style="color: #008000;">&#91;</span>i<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>,dp<span style="color: #008000;">&#91;</span>i<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> <span style="color: #666666;">// recursive statement</span>
+            <span style="color: #0000ff;">else</span>
+            dp<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span>dp<span style="color: #008000;">&#91;</span>i<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+        <span style="color: #008000;">&#125;</span>
+    <span style="color: #008000;">&#125;</span>
+    <span style="color: #0000ff;">return</span> dp<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>w<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span> <span style="color: #666666;">// the last cell will contain the case of all articles and all weights and thus will have the answer</span>
+&nbsp;
+<span style="color: #008000;">&#125;</span></pre>
+
+
+
+<div class="comment" id="kya4" >
+        <h3>Comment :</h3>
+        <form  id="form4" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+
+  <div class="first">
+  <div class="image">
+   <img src="sudhi.JPG" align="left">
+  </div>
+   <div class="pa-des">
+    <b> EDITORIAL FOR CODEFORCES ROUND #614 (Div 2) PROBLEM D
+      AROMA’S SEARCH
+    <b>
+    </div>
+     <div class="pa-des">
+    <b>by-Sudhi Awasthi<b>
+    </div>
+    <div class="p-name">
+      <strong style="color: red">DATE:25/03/2020</strong>
+    </div>
+</div>
+
+<div class="firsta">
+
+    <pre class="question" >Hello geeks!
+
+<a style="color: blue" href="https://codeforces.com/contest/1293/problem/D"><b>Read question here</b></a>
+
+<strong><font color="black" style="font-size: 20px">Disclaimer :
+</font></strong>
+I will try to explain what should be your step- wise thought process for solving this question.
+Thinking in this way helps us to do similar problems in future.
+Proceed with understanding one point at a time and move on to the next only after getting a clear understanding of the previous point.
+
+
+<strong><font color="black">Lets begin!</font></strong>
+
+<font color="balck">1.</font>Is it possible to list out all the data nodes? If yes, then we could think of choosing the reachable ones from the list.  Constraints are important here. If you are able to notice that the minimum value of  a is 2 and the maximum x coordinate is 10<sup>16</sup>. If we just Double each time , we will have maximum  <b style="color: black">log(10<sup>16</sup>) = 53</b> data nodes.Base of log is 2.
+
+<font color="balck">2.</font>Now, you have a list of data nodes, it is important to observe that all the nodes that could be visited would be a segment from this list because in this list data elements are sorted.
+
+<font color="balck">3.</font>Trap would be trying to  get to the <b><font style="color: red">*</font><font color="black">fastest node(z)</font></b> first and then trying to go to its left or right, this will fail  because it might be possible that we reach extreme left or extreme right and then more time is left in which we could  have taken more data nodes from the right of z.
+
+<font color="balck">4.</font>If you observe, there will be another issue,if we fix our z as the fastest possible node, then it is possible that we will need to traverse some section twice in which time will be wasted.
+
+<font color="balck">5.</font>SO, WE BOIL DOWN TO THE FACT that we will consider each l and r possible as the first node to reach in this data nodes set . If it is possible to reach either l or r and traverse the length l to r in time less or equal to t, then we will update the answer.
+
+<font color="balck">6.</font>Basically, we have to make the first visited node as l or r.
+
+<b><font style="color: red">*</font><font color="black">fastest node(z)</font></b>is the data node in the list which is closest to starting point
+
+Read the tutorial for proof of why l or r should be the starting node.<a style="color: blue" href="https://codeforces.com/blog/entry/73051">here</a>
+
+
+<img class="linkedlist" src="cfblog.png">
+
+
+See below for <font color="black">C++ </font>code.
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+
+  </div>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #339900;">#include &lt;bits/stdc++.h&gt;</span>
+<span style="color: #0000ff;">using</span> <span style="color: #0000ff;">namespace</span> std<span style="color: #008080;">;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>      
+&nbsp;
+   ll x0,y0,ax,ay,bx,by,xs,ys,t<span style="color: #008080;">;</span>
+<span style="color: #0000dd;">cin</span><span style="color: #000080;">&gt;&gt;</span>x0<span style="color: #000080;">&gt;&gt;</span>y0<span style="color: #000080;">&gt;&gt;</span>ax<span style="color: #000080;">&gt;&gt;</span>ay<span style="color: #000080;">&gt;&gt;</span>bx<span style="color: #000080;">&gt;&gt;</span>by<span style="color: #000080;">&gt;&gt;</span>xs<span style="color: #000080;">&gt;&gt;</span>ys<span style="color: #000080;">&gt;&gt;</span>t<span style="color: #008080;">;</span>
+ <span style="color: #0000ff;">int</span> ans <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #666666;">//stores all data nodes</span>
+vector <span style="color: #000080;">&lt;</span>pair<span style="color: #000080;">&lt;</span>ll,ll<span style="color: #000080;">&gt;</span> <span style="color: #000080;">&gt;</span> nodes<span style="color: #008080;">;</span>
+&nbsp;
+ll x <span style="color: #000080;">=</span> x0,y <span style="color: #000080;">=</span> y0<span style="color: #008080;">;</span>
+<span style="color: #0000ff;">while</span><span style="color: #008000;">&#40;</span> x <span style="color: #000080;">&lt;=</span> <span style="color:#800080;">3e16</span> <span style="color: #000040;">&amp;&amp;</span> y <span style="color: #000080;">&lt;=</span> <span style="color:#800080;">3e16</span> <span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+&nbsp;
+    nodes.<span style="color: #007788;">push_back</span><span style="color: #008000;">&#40;</span>make_pair<span style="color: #008000;">&#40;</span>x,y<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    x <span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span>ax<span style="color: #000040;">*</span>x<span style="color: #008000;">&#41;</span> <span style="color: #000040;">+</span> bx<span style="color: #008080;">;</span>
+    y<span style="color: #000080;">=</span>  <span style="color: #008000;">&#40;</span>ay<span style="color: #000040;">*</span>y<span style="color: #008000;">&#41;</span> <span style="color: #000040;">+</span> by<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+ <span style="color: #0000ff;">int</span> n <span style="color: #000080;">=</span> nodes.<span style="color: #007788;">size</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #666666;">//Trying out all possible segments </span>
+ <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> l <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> l <span style="color: #000080;">&lt;</span> n <span style="color: #008080;">;</span>l<span style="color: #000040;">++</span> <span style="color: #008000;">&#41;</span>
+ <span style="color: #008000;">&#123;</span>
+   <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> r <span style="color: #000080;">=</span> l <span style="color: #008080;">;</span> r <span style="color: #000080;">&lt;</span> n <span style="color: #008080;">;</span> r<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>
+   <span style="color: #666666;">//Time to reach l from starting point</span>
+     ll leftTime <span style="color: #000080;">=</span> <span style="color: #0000dd;">abs</span><span style="color: #008000;">&#40;</span>nodes<span style="color: #008000;">&#91;</span>l<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">first</span> <span style="color: #000040;">-</span> xs<span style="color: #008000;">&#41;</span><span style="color: #000040;">+</span><span style="color: #0000dd;">abs</span><span style="color: #008000;">&#40;</span>nodes<span style="color: #008000;">&#91;</span>l<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">second</span> <span style="color: #000040;">-</span>ys<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+ <span style="color: #666666;">//Time to reach r from starting point</span>
+   ll rightTime <span style="color: #000080;">=</span> <span style="color: #0000dd;">abs</span><span style="color: #008000;">&#40;</span>nodes<span style="color: #008000;">&#91;</span>r<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">first</span> <span style="color: #000040;">-</span> xs<span style="color: #008000;">&#41;</span><span style="color: #000040;">+</span><span style="color: #0000dd;">abs</span><span style="color: #008000;">&#40;</span>nodes<span style="color: #008000;">&#91;</span>r<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">second</span> <span style="color: #000040;">-</span>ys<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+ <span style="color: #666666;">//Time to reach r from  l</span>
+ ll traversalTime <span style="color: #000080;">=</span> <span style="color: #0000dd;">abs</span><span style="color: #008000;">&#40;</span>nodes<span style="color: #008000;">&#91;</span>l<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">first</span> <span style="color: #000040;">-</span>nodes<span style="color: #008000;">&#91;</span>r<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">first</span> <span style="color: #008000;">&#41;</span><span style="color: #000040;">+</span><span style="color: #0000dd;">abs</span><span style="color: #008000;">&#40;</span>nodes<span style="color: #008000;">&#91;</span>l<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">second</span> <span style="color: #000040;">-</span>nodes<span style="color: #008000;">&#91;</span>r<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">second</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #666666;">//If it is possible to cover the l to r in any of the two ways in less than t time,</span>
+<span style="color: #666666;">// we will update our answer</span>
+&nbsp;
+      <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span> <span style="color: #008000;">&#40;</span>traversalTime <span style="color: #000040;">+</span> rightTime <span style="color: #000080;">&lt;=</span>t<span style="color: #008000;">&#41;</span> <span style="color: #000040;">||</span> <span style="color: #008000;">&#40;</span>traversalTime <span style="color: #000040;">+</span> leftTime <span style="color: #000080;">&lt;=</span>t<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span>
+      ans<span style="color: #000080;">=</span> max<span style="color: #008000;">&#40;</span>ans,r<span style="color: #000040;">-</span>l<span style="color: #000040;">+</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;;</span>
+    <span style="color: #008000;">&#125;</span>
+&nbsp;
+     <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+
+
+<div class="comment" id="kya5" >
+        <h3>Comment :</h3>
+        <form  id="form5" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+
+
+<div class="first">
+  <div class="image">
+   <img src="mypic.jpg" align="left">
+  </div>
+   <div class="pa-des">
+    <b>Graph for beginners<b>
+    </div>
+     <div class="pa-des">
+    <b>by-Shravan Kumar Verma<b>
+    </div>
+    <div class="p-name">
+      <strong style="color: red">DATE:25/03/2020</strong>
+    </div>
+</div>
+
+  <div class="firsta">
+
+    <pre class="question" >Hello geeks!
+
+<strong><font color="black" style="font-size: 20px">Introduction:</font></strong>
+A graph is an abstract data structure that is used to implement the mathematical concept of graphs. It is basically a collection of vertices (also called nodes) and edges that connect these vertices. A graph is often viewed as a generalization of the tree structure, where instead of having a purely parent-to-child relationship between tree nodes, any kind of complex relationship can exist. 
+
+<strong><font color="black" style="font-size: 20px">Definition:</font></strong>
+A graph G is defined as an ordered set (V, E), where V(G) represents the set of vertices and E(G) represents the edges that connect these vertices.<font color="black" style="font-size: 17px">Figure-1</font> shows a graph with V(G) = {A, B, C, D and E} and E(G) = {(A, B), (B, C),  (A, D), (B, D), (D, E), (C, E)}. Note that there are five vertices or nodes and six edges in the graph.
+
+A graph can be directed or undirected. In an undirected graph, edges do not have any direction associated with them. That is, if an edge is drawn between nodes A and B, then the nodes can be traversed from A to B as well as from B to A. <font color="black" style="font-size: 17px">Figure-1</font> shows an undirected graph because it does not give any information about the direction of the edges. Look at <font color="black" style="font-size: 17px">Figure-2</font> which shows a directed graph. In a directed graph, edges form an ordered pair. If there is an edge from A to B, then there is a path from A to B but not from B to A. The edge (A, B) is said to initiate from node A (also known as initial node) and terminate at node B (terminal node). 
+
+
+<center><img src="und.png"></center>
+<center><font color="black" style="font-size: 17px">Figure-1</font></center>
+
+<center><img src="dir.png"></center>
+<center><font color="black" style="font-size: 17px">Figure-2</font></center>
+
+
+<strong><font color="black" style="font-size: 20px">Representation of graphs:
+</font></strong>
+There are two common ways of storing graphs in the computer’s memory.
+
+<font color="black" style="font-size: 17px">1.Adjacency matrix representation</font>
+Adjacency Matrix is a 2D array of size V x V where V is the number of vertices in a graph. Let the 2D array be adj[][], a slot adj[i][j] = 1 indicates that there is an edge from vertex i to vertex j. Adjacency matrix for undirected graph is always symmetric. Adjacency Matrix is also used to represent weighted graphs. If adj[i][j] = w, then there is an edge from vertex i to vertex j with weight w.
+
+<center><img class="linkedlist" src="undpic.png"></center>
+
+
+<font color="black" style="font-size: 17px">1.Adjacency list representation</font>
+An array of lists is used. Size of the array is equal to the number of vertices. Let the array be array[]. An entry array[i] represents the list of vertices adjacent to the ith vertex. This representation can also be used to represent a weighted graph. The weights of edges can be represented as lists of pairs. Following is adjacency list representation of the above graph.
+
+<center><img class="linkedlist" src="dirpic.png"></center>
+
+
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+
+  </div>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #666666;">// A simple representation of graph using STL </span>
+<span style="color: #339900;">#include&lt;bits/stdc++.h&gt; </span>
+<span style="color: #0000ff;">using</span> <span style="color: #0000ff;">namespace</span> std<span style="color: #008080;">;</span> 
+&nbsp;
+<span style="color: #666666;">// A utility function to add an edge in an </span>
+<span style="color: #666666;">// undirected graph. </span>
+<span style="color: #0000ff;">void</span> addEdge<span style="color: #008000;">&#40;</span>vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">int</span><span style="color: #000080;">&gt;</span> adj<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span>, <span style="color: #0000ff;">int</span> u, <span style="color: #0000ff;">int</span> v<span style="color: #008000;">&#41;</span> 
+<span style="color: #008000;">&#123;</span> 
+    adj<span style="color: #008000;">&#91;</span>u<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">push_back</span><span style="color: #008000;">&#40;</span>v<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    adj<span style="color: #008000;">&#91;</span>v<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">push_back</span><span style="color: #008000;">&#40;</span>u<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+<span style="color: #008000;">&#125;</span> 
+&nbsp;
+<span style="color: #666666;">// A utility function to print the adjacency list </span>
+<span style="color: #666666;">// representation of graph </span>
+<span style="color: #0000ff;">void</span> printGraph<span style="color: #008000;">&#40;</span>vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">int</span><span style="color: #000080;">&gt;</span> adj<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span>, <span style="color: #0000ff;">int</span> V<span style="color: #008000;">&#41;</span> 
+<span style="color: #008000;">&#123;</span> 
+    <span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> v <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> v <span style="color: #000080;">&lt;</span> V<span style="color: #008080;">;</span> <span style="color: #000040;">++</span>v<span style="color: #008000;">&#41;</span> 
+    <span style="color: #008000;">&#123;</span> 
+        <span style="color: #0000dd;">cout</span> <span style="color: #000080;">&lt;&lt;</span> <span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span> Adjacency list of vertex &quot;</span>
+             <span style="color: #000080;">&lt;&lt;</span> v <span style="color: #000080;">&lt;&lt;</span> <span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span> head &quot;</span><span style="color: #008080;">;</span> 
+        <span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">auto</span> x <span style="color: #008080;">:</span> adj<span style="color: #008000;">&#91;</span>v<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> 
+           <span style="color: #0000dd;">cout</span> <span style="color: #000080;">&lt;&lt;</span> <span style="color: #FF0000;">&quot;-&gt; &quot;</span> <span style="color: #000080;">&lt;&lt;</span> x<span style="color: #008080;">;</span> 
+        <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    <span style="color: #008000;">&#125;</span> 
+<span style="color: #008000;">&#125;</span> 
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> 
+<span style="color: #008000;">&#123;</span> 
+    <span style="color: #0000ff;">int</span> V <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span><span style="color: #008080;">;</span> 
+    vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">int</span><span style="color: #000080;">&gt;</span> adj<span style="color: #008000;">&#91;</span>V<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span> 
+    addEdge<span style="color: #008000;">&#40;</span>adj, <span style="color: #0000dd;">0</span>, <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    addEdge<span style="color: #008000;">&#40;</span>adj, <span style="color: #0000dd;">0</span>, <span style="color: #0000dd;">4</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    addEdge<span style="color: #008000;">&#40;</span>adj, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    addEdge<span style="color: #008000;">&#40;</span>adj, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">3</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    addEdge<span style="color: #008000;">&#40;</span>adj, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">4</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    addEdge<span style="color: #008000;">&#40;</span>adj, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">3</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    addEdge<span style="color: #008000;">&#40;</span>adj, <span style="color: #0000dd;">3</span>, <span style="color: #0000dd;">4</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    printGraph<span style="color: #008000;">&#40;</span>adj, V<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+    <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> 
+<span style="color: #008000;">&#125;</span> </pre>
+
+
+<div class="comment" id="kya6" >
+        <h3>Comment :</h3>
+        <form  id="form6" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+    
+      <div class="first">
+  <div class="image">
+   <img src="ratnesh.png" align="left">
+  </div>
+   <div class="pa-des">
+    <b>Traversal of graph<b>
+    </div>
+     <div class="pa-des">
+    <b>by-Ratnesh Kumar Verma<b>
+    </div>
+    <div class="p-name">
+      <strong style="color: red">DATE:26/03/2020</strong>
+    </div>
+</div>
+
+  <div class="firsta">
+
+    <pre class="question" >Hello geeks!
+
+<strong><font color="black" style="font-size: 20px">Introduction:</font></strong>
+Traversal of graph means visiting each vertex of the graph exactly once in a specific order.
+There are two algorithms of graph traversal:-
+<font color="red">1.</font>BFS
+<font color="red">2.</font>DFS
+
+
+<strong><font color="black" style="font-size: 20px">DFS:</font></strong>
+DFS(Depth First Search) uses the concept of backtracking.Starting from a distinguished source vertex.Every time dfs hits a branching point ,dfs will choose one of the unvisited neighbor(s) and visit this neighbor vertex.dfs repeats this process and goes deeper until it reaches a vertex where it cannot go any deeper.when this happens , dfs will backtrack and explore another unvisited neighbor(s) , if any.
+ initially we mark all vertex unvisited and create an adjacency list of graph.when we discover a vertex v then we mark it unvisited.
+
+   
+<center><img class="linkedlist" src="dfs.png"></center>
+
+The node which is visited is marked with orange color.
+
+<strong><font color="black" style="font-size: 20px">BFS:
+</font></strong>
+Starting from a distinguished source vertex.bfs will visit vertices that are the direct neighbor of the source vertex (first layer ) , neighbors of the direct neighbor (second layer) and so on ,layer by layer.
+
+initially we mark all vertex unvisited and create an adjacency list of graph.when we discover a vertex v then we mark it unvisited.
+
+<center><img class="linkedlist" src="bfs.png"></center>
+
+The node which is visited is marked with orange color.
+see below for code of dfs and bfs--
+
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+ </div>
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #666666;">//DFS function in cpp</span>
+<span style="color: #0000ff;">bool</span> visited<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">int</span><span style="color: #000080;">&gt;</span> adj<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+<span style="color: #0000ff;">void</span> dfs<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> u<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>  
+    visited<span style="color: #008000;">&#91;</span>u<span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span><span style="color: #0000ff;">true</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span>adj<span style="color: #008000;">&#91;</span>u<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">size</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span> <span style="color: #666666;">//explore all neighbour of node u</span>
+       <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>visited<span style="color: #008000;">&#91;</span>adj<span style="color: #008000;">&#91;</span>u<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span>
+          <span style="color: #008000;">&#123;</span> <span style="color: #666666;">//if node adj[u][i] is not visited </span>
+             <span style="color: #666666;">//call the dfs function </span>
+              dfs<span style="color: #008000;">&#40;</span>adj<span style="color: #008000;">&#91;</span>u<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+           <span style="color: #008000;">&#125;</span>
+     <span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+<pre class="cpp" style="font-family:monospace;"><span style="color: #666666;">//bfs function</span>
+<span style="color: #0000ff;">bool</span> visited<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">int</span><span style="color: #000080;">&gt;</span> adj<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+<span style="color: #0000ff;">void</span> bfs<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> u<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>    
+     queue <span style="color: #000080;">&lt;</span><span style="color: #0000ff;">int</span><span style="color: #000080;">&gt;</span> q<span style="color: #008080;">;</span>
+     q.<span style="color: #007788;">push</span><span style="color: #008000;">&#40;</span>u<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+     visited<span style="color: #008000;">&#91;</span>u<span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span><span style="color: #0000ff;">true</span><span style="color: #008080;">;</span>
+     <span style="color: #0000ff;">while</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>q.<span style="color: #007788;">empty</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span>
+      <span style="color: #008000;">&#123;</span>
+   <span style="color: #0000ff;">int</span>  p <span style="color: #000080;">=</span> q.<span style="color: #007788;">front</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+   q.<span style="color: #007788;">pop</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+   <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i<span style="color: #000080;">&lt;</span>adj<span style="color: #008000;">&#91;</span>p<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">size</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+            <span style="color: #008000;">&#123;</span>  <span style="color: #666666;">//visit every unvisited child of </span>
+               <span style="color: #666666;">//node p</span>
+               <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>visited<span style="color: #008000;">&#91;</span>adj<span style="color: #008000;">&#91;</span>p<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #0000ff;">false</span><span style="color: #008000;">&#41;</span>
+                  <span style="color: #008000;">&#123;</span>   <span style="color: #666666;">//push the child into queue</span>
+                       <span style="color: #666666;">//and mark them visited</span>
+              q.<span style="color: #007788;">push</span><span style="color: #008000;">&#40;</span>adj<span style="color: #008000;">&#91;</span>p<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+               visited<span style="color: #008000;">&#91;</span>adj<span style="color: #008000;">&#91;</span>p<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">true</span><span style="color: #008080;">;</span>
+          <span style="color: #008000;">&#125;</span>
+      <span style="color: #008000;">&#125;</span>
+       <span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+<div class="comment" id="kya7" >
+        <h3>Comment :</h3>
+        <form  id="form7" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+
+
+
+
+
+<div class="first">
+  <div class="image">
+   <img src="abhi.JPG" align="left">
+  </div>
+   <div class="pa-des">
+    <b>Seive of Erotosthenes<b>
+    </div>
+     <div class="pa-des">
+    <b>by-Abhishek Gaur<b>
+    </div>
+    <div class="p-name">
+      <strong style="color: red">DATE:26/03/2020</strong>
+    </div>
+</div>
+
+  <div class="firsta">
+
+    <pre class="question" >Hello geeks!
+
+<strong><font color="black" style="font-size: 20px">Introduction:</font></strong>
+the traditional method to find prime number has high complexity to overcome this traditional method.
+We will discuss about one the most efficient method to print prime number i.e. "Sieve Of Eratosthenes"
+Lets discuss about Sieve Of Eratosthenes:
+The sieve of Eratosthenes is a simple and efficient  algorithm for finding all prime numbers up to any given limit.
+To find all the prime numbers less than or equal to a given integer n by Eratosthenes method.
+
+<strong><font color="black" style="font-size: 20px">Steps:</font></strong>
+<font color="red">1.</font>Create a list of consecutive integers from 2 to n: (2, 3, 4, …, n).
+<font color="red">2.</font>Initially, let p equal 2, the first prime number.
+<font color="red">3.</font>Starting from p<sup>2</sup>, count up in increments of p and mark each of these numbers greater than or equal to p<sup>2</sup> itself in the list. These numbers will be p(p+1), p(p+2), p(p+3), etc..
+<font color="red">4.</font>Find the first number greater than p in the list that is not marked. If there was no such number, stop. Otherwise, let p now equal this number (which is the next prime), and repeat from <font color="red">step 3.</font>
+
+
+<strong><font color="black" style="font-size: 20px">Example:</font></strong>
+<font color="red">1.</font>The smallest prime number is 2.create the list of consecutive integer upto n,i.e upto we has print prime number.
+Let take n=10;
+list=2,3,4,5,5,6,7,8,9,10;
+
+<font color="red">2.</font>Now,intiate with p=2,remove all number upto n that is divided by 2 and are greater than or equal to the square of it.
+smallest prime number is 2.
+now,remove all number between 2 and 10;
+then after that list= 2,3,5,7,9;
+
+<font color="red">3.</font>Take next number from list i.e is p,now remove the all number that is divided by p and are greater than or equal to the square of it;
+now,remove all number from list which is divided by 3.
+then list =2,3,5,7
+
+<font color="red">4.</font>Again,take next number from list i.e p,now remove the all number that is divided by p and are greater than or equal to the square of it;
+again p=5 remove all number is divided by 4;
+then list=2,3,5,7;
+
+<font color="red">5.</font>.Continuosly take next number from list i.e p  and division of list of number is continue upto p=n;
+
+<font color="red">6.</font>The number which is left in the list is prime number.
+finally list =2,3,5,7; that is prime number.
+
+Hope you understand....
+  
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+ </div>
+
+<pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span>
+<span style="color: #993333;">int</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
+<span style="color: #009900;">&#123;</span>
+     <span style="color: #993333;">int</span> n<span style="color: #339933;">;</span>
+     <span style="color: #000066;">printf</span><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;Enter n value upto we have to find prime number: &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+     <span style="color: #000066;">scanf</span><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,</span> <span style="color: #339933;">&amp;</span>n<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+      <span style="color: #993333;">int</span> prime<span style="color: #009900;">&#91;</span>n<span style="color: #339933;">+</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+      <span style="color: #666666; font-style: italic;">//Load the array with numbers (1,n)</span>
+      <span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> i <span style="color: #339933;">=</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;=</span> n<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span>
+       <span style="color: #009900;">&#123;</span>
+            prime<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> i<span style="color: #339933;">;</span>
+         <span style="color: #009900;">&#125;</span>
+<span style="color: #666666; font-style: italic;">//now begin  with smallest prime number, which is 2.</span>
+<span style="color: #666666; font-style: italic;">//No need to check for numbers greater than square root of n because it is already consider.</span>
+    <span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> i <span style="color: #339933;">=</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">;</span> i<span style="color: #339933;">*</span>i <span style="color: #339933;">&lt;=</span> n<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span>
+      <span style="color: #009900;">&#123;</span>
+          <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>prime<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span> <span style="color: #339933;">!=</span> <span style="color: #339933;">-</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span>
+           <span style="color: #009900;">&#123;</span>
+              <span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> j <span style="color: #339933;">=</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">*</span>i<span style="color: #339933;">;</span> j <span style="color: #339933;">&lt;=</span>n <span style="color: #339933;">;</span> j <span style="color: #339933;">+=</span> i<span style="color: #009900;">&#41;</span>
+                     prime<span style="color: #009900;">&#91;</span>j<span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #339933;">-</span><span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>
+             <span style="color: #009900;">&#125;</span>
+       <span style="color: #009900;">&#125;</span>
+      <span style="color: #000066;">printf</span><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;Prime numbers are between 1 and n is : <span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+      <span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> i<span style="color: #339933;">=</span><span style="color: #0000dd;">2</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;=</span> n<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span>
+       <span style="color: #009900;">&#123;</span>
+           <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>prime<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span> <span style="color: #339933;">!=</span> <span style="color: #339933;">-</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span>
+              <span style="color: #000066;">printf</span><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d &quot;</span><span style="color: #339933;">,</span> i<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+         <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span>
+<span style="color: #666666; font-style: italic;">//Time complexity of Sieve Of Eratosthenes algorithm is :O(n log log n):</span></pre>
+
+
+
+
+
+
+
+<div class="comment" id="kya8" >
+        <h3>Comment :</h3>
+        <form  id="form8" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+
+
+<div class="first">
+  <div class="image">
+   <img src="krandeep.jpg" align="left">
+  </div>
+   <div class="pa-des">
+    <b>Matrix Exponentiation<b>
+    </div>
+     <div class="pa-des">
+    <b>by-Karandeep Singh<b>
+    </div>
+    <div class="p-name">
+      <strong style="color: red">DATE:26/03/2020</strong>
+    </div>
+</div>
+
+  <div class="firsta">
+
+    <pre class="question" >Hello geeks!
+
+<strong><font color="black" style="font-size: 20px">Introduction:</font></strong>
+Matrix Multiplication rule:
+Remember we can multiply two matrices when no. of columns of first matrix = no. of rows of second matrix.
+So here we are multiplying two matrices A and B having order (n x k) and (k x m) resp. to get matrix of order (n x m) 
+C = A * B (Matrix multiplication)
+
+<center><img class="linkedlist" src="matrix.png"></center>
+
+
+<strong><font color="black" style="font-size: 20px">Matrix exponentiation</font></strong>
+Suppose we have a square matrix A of order (n x n). 
+We define matrix exponentiation as :-
+A<sup>x</sup> = A*A*A*A….. (x times) 
+There is a special case:
+A0 = I<sub>n</sub> 
+A<sup>x</sup> can be calculated using binary exponentiation in O(n<sup>3</sup>log x)
+
+<strong><font color="black" style="font-size: 20px">Working </font></strong>
+For solving Matrix exponentiation problems we need a linear recurrence relation first and what we do next is to find a (k x k) square matrix M which can lead us to the desired state from a set of already known states. Let we know k states of recurrence relation. 
+We build (k x 1) matrix  A from already known states and get (k  x 1) matrix B which will give set of next states i.e.
+M*A=B as given below:
+
+<center><img class="linkedlist" src="m1.JPG"></center>
+
+
+In this way using f(n) we can calculate f(n+1),f(n+2),…………..and so on…
+
+<center><img class="linkedlist" src="m2.JPG"></center>
+
+
+Let’s construct matrix M for our favourite Fibonacci sequence 
+Recurrence relation is f(n)=f(n-1)+f(n-2).
+
+<center><img class="linkedlist" src="m3.JPG"></center>
+
+
+Using this we get
+a (f(n-2)) + b (f(n-1)) = f(n-1)
+therefore a=0,b=1
+c (f(n-2)) + d (f(n-1)) = f(n)
+therefore  c=1,d=1      
+
+<center><img class="linkedlist" src="m5.JPG"></center>
+
+
+So we can find Nth Fibonacci number as described below
+
+<center><img class="linkedlist" src="m6.JPG"></center>
+
+
+Hope you understand....
+
+<strong><font color="black" style="font-size: 20px">Practice Problems</font></strong><ol>
+<li><a href="https://www.spoj.com/problems/MPOW/" target="_blank">Problem-1</a></li>
+<li><a href="https://www.geeksforgeeks.org/ways-to-represent-a-number-as-a-sum-of-1s-and-2s/" target="_blank">Problem-2</a></li>
+<li><a href="https://www.codechef.com/COG2020/problems/COG2004/ " target="_blank">Problem-3</a></li>
+<li><a href="https://codeforces.com/problemset/problem/166/E" target="_blank">Problem-4</a></li>
+</ol>
+See below for code
+  
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+</pre>
+ </div>
+
+
+<pre class="cpp" style="font-family:monospace;"><span style="color: #339900;">#include&lt;bits/stdc++.h&gt;</span>
+<span style="color: #0000ff;">typedef</span> <span style="color: #0000ff;">long</span> <span style="color: #0000ff;">long</span> ll<span style="color: #008080;">;</span>
+<span style="color: #0000ff;">using</span> <span style="color: #0000ff;">namespace</span> std<span style="color: #008080;">;</span>
+<span style="color: #0000ff;">const</span> ll mod <span style="color: #000080;">=</span><span style="color:#800080;">1e9</span><span style="color: #000040;">+</span><span style="color: #0000dd;">7</span><span style="color: #008080;">;</span>
+ll temp<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+<span style="color: #0000ff;">void</span> mul<span style="color: #008000;">&#40;</span>ll a<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #008000;">&#93;</span>,ll b<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>  ll sum<span style="color: #008080;">;</span> 
+&nbsp;
+    <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+     <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> j<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>j<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+       <span style="color: #008000;">&#123;</span> sum<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+          <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> k<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>k<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>k<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+           sum<span style="color: #000080;">=</span><span style="color: #008000;">&#40;</span>sum<span style="color: #000040;">+</span>a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>k<span style="color: #008000;">&#93;</span><span style="color: #000040;">%</span>mod<span style="color: #000040;">*</span>b<span style="color: #008000;">&#91;</span>k<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #000040;">%</span>mod<span style="color: #008000;">&#41;</span><span style="color: #000040;">%</span>mod<span style="color: #008080;">;</span>
+           temp<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span>sum<span style="color: #008080;">;</span>  
+       <span style="color: #008000;">&#125;</span> 
+    <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+      <span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> j<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>j<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+       a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span>temp<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+ll fibo<span style="color: #008000;">&#40;</span>ll n<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span> ll M<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span><span style="color: #008000;">&#123;</span><span style="color: #008000;">&#123;</span><span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">1</span><span style="color: #008000;">&#125;</span>,<span style="color: #008000;">&#123;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span><span style="color: #008000;">&#125;</span><span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span> 
+   ll I<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #008000;">&#93;</span><span style="color: #000080;">=</span><span style="color: #008000;">&#123;</span><span style="color: #008000;">&#123;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">0</span><span style="color: #008000;">&#125;</span>,<span style="color: #008000;">&#123;</span><span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">1</span><span style="color: #008000;">&#125;</span><span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Identity Matrix</span>
+    <span style="color: #0000ff;">while</span><span style="color: #008000;">&#40;</span>n<span style="color: #008000;">&#41;</span> 
+  <span style="color: #008000;">&#123;</span> <span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>n<span style="color: #000040;">&amp;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span>
+     mul<span style="color: #008000;">&#40;</span>I,M<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  
+     mul<span style="color: #008000;">&#40;</span>M,M<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+     n<span style="color: #000040;">/</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>  
+  <span style="color: #008000;">&#125;</span>
+    <span style="color: #0000ff;">return</span> I<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span> 
+   ll n<span style="color: #008080;">;</span>
+   <span style="color: #0000dd;">cin</span><span style="color: #000080;">&gt;&gt;</span>n<span style="color: #008080;">;</span>
+   <span style="color: #0000dd;">cout</span><span style="color: #000080;">&lt;&lt;</span>fibo<span style="color: #008000;">&#40;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+   <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+
+<div class="comment" id="kya9" >
+        <h3>Comment :</h3>
+        <form  id="form9" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+
+
+<div class="first">
+  <div class="image">
+   <img src="aj.png" align="left">
+  </div>
+   <div class="pa-des">
+    <b>BASICS OF ARRAY<b>
+    </div>
+     <div class="pa-des">
+    <b>by-AJ(Anubhav Jain)<b>
+    </div>
+    <div class="p-name">
+      <strong style="color: red">DATE:26/03/2020</strong>
+    </div>
+</div>
+
+  <div class="firsta">
+
+    <pre class="question" >Hello geeks!
+
+<strong><font color="black" style="font-size: 20px">Introduction:</font></strong>
+This article described the basics, need and logic of array.
+First-of-all question arises –
+Q. what is an ARRAY?
+Ans : ARRAY is an data structure in which data is store in contiguous  memory locations. By contiguous memory locations we means if one data is stored at memory location  x than the respective next element is stored by x+1 memory location. 
+Next question arises - why ARRAY  is so important and used everywhere?
+Ans: basically data structures are judged on three basis i.e.
+<font color="black">1.</font>Insertion 
+<font color="black">2.</font>Accessing a element
+<font color="black">3.</font>Deletion 
+
+
+Array used to insert the given data at given location by users. So its take constant time(O(1)) for this.
+We can access a element in  constant time by giving its position .
+We can delete the particular element knowing its memory location. So this action is also performed in constant time.
+That-is-why array is important and is used over other data structure.
+Q. HOW TO DECLARE  AND USE AN ARRAY?
+Ans:in C and CPP we use following:-
+    int  main()
+    {
+      int arr[5];
+    }
+    This declare an array of size =5 of name arr.
+    int  main()
+    {
+      int arr[]={1,2,3,4,5,6,7};
+    }
+In this we don’t give size but size is determined by given elements. In it:-
+arr[0]=1 arr[1]=2 arr[2]=3 and so on...
+
+<table border="2">
+  <tr>
+    <th>data</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+  </tr>
+  <tr>
+    <th>index</th>
+    <th>0</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+   
+  </tr>
+</table>
+
+All data stored in contiguous (incremented) memory locations.
+<font color="red">array indexing is started from 0 instead of 1.</font>
+Taking variable size and input from user and saving it in array;
+
+int main()
+    {
+      int n;
+      printf(“enter the size of array”);
+      scanf(“%d”,&n);
+      int arr[n];
+      for(int i=0;i&lt;n;i++)
+      scanf(“%d”,&arr[i]);
+    }
+
+Due to constant time property and easy usage array is a basic and widely used data structure having hands in almost all programming languages.
+KEEP TUNED TO KNOW AND LEARN MORE☺
+  
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+
+</pre>
+ </div>
+
+ <div class="comment" id="kya10" >
+        <h3>Comment :</h3>
+        <form  id="form10" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+<div class="first">
+  <div class="image">
+   <img src="aj.png" align="left">
+  </div>
+   <div class="pa-des">
+    <b>BASICS OF VECTOR<b>
+    </div>
+     <div class="pa-des">
+    <b>by-AJ(Anubhav Jain)<b>
+    </div>
+    <div class="p-name">
+      <strong style="color: red">DATE:26/03/2020</strong>
+    </div>
+</div>
+
+  <div class="firsta">
+
+    <pre class="question" >Hello geeks!
+
+<strong><font color="black" style="font-size: 20px">Introduction:</font></strong>
+This article described the basics, need and logic of vector.
+Array is one of the best data structure but like everything. It too has drawback. One of the biggest drawback of array is declaring it’s size. So in CPP STL we got a data structure called VECTOR.
+VECTOR is defined as dynamic arrays with advantage of resizing itself according to usage.
+Due to this ability it also avoids memory wastage. Insertion always use to take place at the end so that the resizing can be done easily. Just like array , data in vector is also stored at contiguous memory location.
+See below for USAGE OF VECTOR IN PROGRAM AND SOME OF COMMONLY USED BUILT-IN FUNCTION:-
+
+KEEP TUNED TO KNOW AND LEARN MORE☺
+  
+<font color="red">**comment below if you found any error or want to gives suggestions</font>
+
+</pre>
+ </div>
+<pre class="cpp" style="font-family:monospace;"><span style="color: #339900;">#include &lt;bits/stdc++.h&gt;</span>
+<span style="color: #0000ff;">using</span> <span style="color: #0000ff;">namespace</span> std<span style="color: #008080;">;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+<span style="color: #666666;">//declaring a vector of name v having storage for type int</span>
+vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">int</span><span style="color: #000080;">&gt;</span>v<span style="color: #008080;">;</span>
+<span style="color: #666666;">//push_back() uses to push element(data) in vector</span>
+v.<span style="color: #007788;">push_back</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+v.<span style="color: #007788;">push_back</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+v.<span style="color: #007788;">push_back</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">3</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+v.<span style="color: #007788;">push_back</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">4</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #666666;">//size() gives size of vector</span>
+<span style="color: #0000ff;">for</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span>v.<span style="color: #007788;">size</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+<span style="color: #0000dd;">cout</span><span style="color: #000080;">&lt;&lt;</span>v<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+<span style="color: #666666;">//pop_back is used to pop element from vector</span>
+v.<span style="color: #007788;">pop_back</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #666666;">//begin() use to return iterator or pointer @ begining element of vector</span>
+<span style="color: #0000dd;">cout</span><span style="color: #000080;">&lt;&lt;</span><span style="color: #FF0000;">&quot;begining element of vector&quot;</span><span style="color: #008080;">;</span>
+<span style="color: #0000dd;">cout</span><span style="color: #000080;">&lt;&lt;</span><span style="color: #000040;">*</span>v.<span style="color: #007788;">begin</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #666666;">//end() use to return iterator or pointer @ end elemenet of vector</span>
+<span style="color: #0000dd;">cout</span><span style="color: #000080;">&lt;&lt;</span><span style="color: #FF0000;">&quot;end element of vector&quot;</span><span style="color: #008080;">;</span>
+<span style="color: #0000dd;">cout</span><span style="color: #000080;">&lt;&lt;</span><span style="color: #000040;">*</span>v.<span style="color: #007788;">end</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+
+
+<div class="comment" id="kya11" >
+        <h3>Comment :</h3>
+        <form  id="form11" >
+            <input type="text" class="dis" name="name" placeholder="Enter Your name" required="true">
+            <br>
+            <textarea class="com" name="massage" rows="5" placeholder="Comment..." required="true"></textarea>
+            <br>
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+          <hr>
+         
+        </div>
+
+
+
+
+
+
+<footer>
+      <div class="footer-container">
+        <div class="left-col">
+          <img src="mylogo.JPG" alt="this is logo" class="logo">
+          <div class="social-media">
+            <a href="https://www.facebook.com/shravan.verma.9883" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/shravanv1/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <p class="rights-text"><i class="far fa-envelope"></i><b>: :shravankumarverma1@gmail.com</b></p>
+          <p class="rights-text">© 2020 Created By Shravanv1 All Rights Reserved.</p>
+        </div>
+
+        <div class="right-col">
+          <h1>Our Newsletter</h1>
+          <div class="border"></div>
+          <p>Enter Your Email to get our news and updates.</p>
+          <form action="" id="form" class="newsletter-form">
+            <input type="text" class="txtb" id="email" name="email" placeholder="Enter Your Email">
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+        </div>
+      </div>
+    </footer>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBLT3UHfgGXS4KueQ1LcJVUNuQpevv2b50",
+    authDomain: "shravanv1.firebaseapp.com",
+    databaseURL: "https://shravanv1.firebaseio.com",
+    projectId: "shravanv1",
+    storageBucket: "shravanv1.appspot.com",
+    messagingSenderId: "735573093847",
+    appId: "1:735573093847:web:fba5cae99f8c759e46ef92",
+    measurementId: "G-C1N4BGBT78"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var db = firebase.firestore();
+  //db.settings({ timestampsInSnapshots: true});
+</script>
+  <script src="app.js"></script>
+   <script src="mainblog.js"></script>
+   
+   <script src="pwa.js"></script>
+</body>
+</html>
