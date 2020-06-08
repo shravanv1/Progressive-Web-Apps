@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shravanv1</title>
+   <link rel="canonical" href="https://example.com"/>
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="icon" type="icon/logo" href="mylogo.JPG">
+	 <link rel="stylesheet" href="style.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	   <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+     <link rel="manifest"  href="manifest.json">
+     <link rel="apple-touch-icon" href="icon2.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
+  <meta name="theme-color" content="orange">
+</head>
+<body>
+
+   
+    	<div class="topnav" id="myTopnav">
+    		
+    			 <a href="index.html" class="action" >Shravanv1</a>
+                 <a href="index.html"><i class="fa fa-fw fa-home home"></i>HOME</a>
+                 <a href="blog.html"  ><i class="fa fa-book fa-fw blog"></i>BLOG</a>
+                 
+                 <a href="Our Team.html" ><i class="fa fa-fw fa-users team"></i> TEAM</a>
+                 <a href="practice.html" class="top"><i class="fas fa-laptop-code relode"></i></i>PRACTICE</a>
+                 <a href="covid.html"><i class="fas fa-newspaper news"></i>COVID-19</a>
+                 
+                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+    	</div>
+<div>
+	<img src="Cover1.jpg" id="responsive-image" >
+</div>  
+
+ <div class="middle">
+ 	<center><h1>Learning computer science and coding, made easy.</h1></center>
+ 	<center><p style="font-size: 20px;">
+ 		Share your knowledge and learn new concepts in programming.Read content from our blog and learn concepts related to competitive coding and programming skills.Our mission is provide best conent related to competitive programmig.Students practice at their own pace, first filling in gaps in their understanding and then accelerating their learning.Created by experts, standards-aligned practice and lessons covers by good competetive programers. It’s all free for learners.
+ 	</p></center>
+
+ </div>
+
+<div class="testnomials">
+	<div class="test">
+		<center><h1>Testimonials</h1>
+		<div class="border"></div></center>
+        <div class="row">
+
+            <div class="col">
+        		<div class="testnomial">
+        			<img src="avani.jpg">
+        			<div class="naming">
+        				Avani Mishra
+        			</div>
+                     <b><p>Studies Computer Science and Engineering at IIT Kanpur</p></b>
+        			<p>Content of this blog is too awesome and usefull.It help me a lot to learn about competitive coding.I learned new concept in competitive progrming form blog.  </p>
+        		</div>
+        	</div>
+
+
+
+        	<div class="col">
+        		<div class="testnomial">
+        			<img src="aman.jpg">
+        			<div class="naming">
+        				Aman Kumar Gupta
+        			</div>
+        			<b><p>Studies Information Technology at KNIT Sultanpur (Uttar Pradesh)</p></b>
+        			<p>Blog from this site help me to learn new concept in coding .I am thank full to all who helped me.Content of blog resolve my problem in various topic. </p>
+        		</div>
+        	</div>
+            
+             
+        	<div class="col">
+        		<div class="testnomial">
+        			<img src="ashish.jpg">
+        			<div class="naming">
+        				Ashish Gupta
+        			</div>
+        			<b><p>Studies Computer Science & Engineering (CSE) at BITS Pilani, Hyderabad Campus</p></b>
+        			<p> I found blogs of this site is very useful.
+        			The quality of content is too good.I thank you to all of team member for this awesome blogs. </p>
+        		</div>
+        	</div>
+
+
+
+        </div>
+	</div>
+
+
+
+
+</div>
+
+
+
+
+ <footer>
+      <div class="footer-container">
+        <div class="left-col">
+          <img src="mylogo.JPG" alt="this is logo" class="logo">
+          <div class="social-media">
+            <a href="https://www.facebook.com/shravan.verma.9883" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/shravanv1/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <p class="rights-text"><i class="far fa-envelope"></i><b>: :shravankumarverma1@gmail.com</b></p>
+          <p class="rights-text">© 2020 Created By Shravanv1 All Rights Reserved.</p>
+        </div>
+
+        <div class="right-col">
+          <h1>Our Newsletter</h1>
+          <div class="border"></div>
+          <p>Enter Your Email to get our news and updates.</p>
+          <form action="" id="form" class="newsletter-form">
+            <input type="text" class="txtb" id="email" name="email" placeholder="Enter Your Email">
+            <button type="submit" class="btn" id="bt">Submit</button>
+           
+          </form>
+        </div>
+      </div>
+    </footer>
+
+
+
+	<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBLT3UHfgGXS4KueQ1LcJVUNuQpevv2b50",
+    authDomain: "shravanv1.firebaseapp.com",
+    databaseURL: "https://shravanv1.firebaseio.com",
+    projectId: "shravanv1",
+    storageBucket: "shravanv1.appspot.com",
+    messagingSenderId: "735573093847",
+    appId: "1:735573093847:web:fba5cae99f8c759e46ef92",
+    //appId: "ca-app-pub-7588718578188314~4510820723",
+    measurementId: "G-C1N4BGBT78"
+    //adunitID: "ca-app-pub-7588718578188314/7683778970"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var db = firebase.firestore();
+  //db.settings({ timestampsInSnapshots: true});
+</script>
+  <script src="app.js"></script>
+  <script src="pwa.js"></script>
+
+</body>
+</html>
